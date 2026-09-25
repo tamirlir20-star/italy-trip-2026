@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>טיול לאיטליה 2026</title>
+<style>
+  :root {
+    --bg: #F6F2E7;
+    --surface: #FFFFFF;
+    --surface-2: #ECE6D4;
+    --ink: #282318;
+    --ink-soft: #6E6350;
+    --accent: #C68A34;
+    --accent-ink: #FFFFFF;
+    --accent2: #1E6B63;
+    --gold: #DDB25A;
+    --moss: #5C7A52;
+    --line: #E3DAC2;
+    --good: #2E7D4F;
+    --bad: #B23B3B;
+    --shadow: 0 2px 4px rgba(60,50,20,0.08), 0 10px 28px rgba(60,50,20,0.10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #171510;
+      --surface: #211D15;
+      --surface-2: #2A2519;
+      --ink: #F1ECDD;
+      --ink-soft: #C9BFA4;
+      --accent: #E0A24C;
+      --accent-ink: #241204;
+      --accent2: #4FADA0;
+      --gold: #EFC96E;
+      --moss: #8FAF7E;
+      --line: #3B3423;
+      --good: #6FCB90;
+      --bad: #E58888;
+      --shadow: 0 2px 4px rgba(0,0,0,0.35), 0 10px 30px rgba(0,0,0,0.4);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Arial, "Segoe UI", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    line-height: 1.55;
+    direction: rtl;
+    text-align: right;
+  }
+  .display { font-family: Arial, "Segoe UI", "Helvetica Neue", sans-serif; font-weight: 700; }
+  .num, time, .code {
+    font-family: Arial, "Segoe UI", "Helvetica Neue", sans-serif;
+    font-variant-numeric: tabular-nums;
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+  a[href^="tel:"] { direction: ltr; unicode-bidi: isolate; }
+
+  a { color: var(--accent2); }
+
+  nav.toc {
+    position: fixed; inset-inline: 0; bottom: 0; z-index: 20;
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+    overflow-x: auto;
+  }
+  nav.toc ul { list-style: none; display: flex; gap: 0.25rem; margin: 0; padding: 0.55rem 1rem; min-width: max-content; }
+  nav.toc a {
+    display: flex; align-items: center; gap: 0.4rem;
+    text-decoration: none; color: var(--ink);
+    font-size: 0.92rem; font-weight: 700;
+    padding: 0.45rem 0.8rem; border-radius: 999px; white-space: nowrap;
+  }
+  nav.toc a:hover { background: var(--surface-2); }
+  nav.toc .ic { font-size: 1.1rem; line-height: 1; }
+  body { padding-bottom: 4.2rem; }
+
+  .wrap { max-width: 560px; margin: 0 auto; padding: 0 1.1rem; }
+  @media (min-width: 720px) { .wrap { max-width: 640px; } }
+
+  .logo-bar {
+    background: var(--bg); display: flex; justify-content: center;
+    padding: 0.7rem 1rem;
+  }
+  .logo-img { display: block; width: 100%; max-width: 160px; height: auto; }
+
+  .hero-photo-wrap {
+    position: relative; width: 100%; height: 44vw;
+    min-height: 190px; max-height: 360px;
+    overflow: hidden;
+  }
+  .hero-photo {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 45%;
+  }
+  header.hero {
+    position: relative; padding: 1.6rem 0 1.8rem; overflow: hidden;
+    background:
+      radial-gradient(120% 90% at 12% 0%, color-mix(in srgb, var(--gold) 28%, transparent), transparent 60%),
+      linear-gradient(180deg, color-mix(in srgb, var(--accent2) 14%, var(--bg)) 0%, var(--bg) 78%);
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    color: var(--accent-ink); background: var(--accent2);
+    font-size: 0.78rem; letter-spacing: 0.03em; font-weight: 700;
+    padding: 0.3rem 0.75rem; border-radius: 999px; margin: 0 0 0.75rem;
+  }
+  h1 { font-size: clamp(1.6rem, 7vw, 2.15rem); margin: 0 0 0.55rem; line-height: 1.2; text-align: center; }
+  .sub { color: var(--ink); font-size: 1.28rem; font-weight: 700; margin: 0 0 1.4rem; text-align: center; }
+  .stat-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 0.7rem 0.8rem; box-shadow: var(--shadow); }
+  .stat-label { font-size: 0.72rem; color: var(--ink-soft); margin: 0 0 0.2rem; }
+  .stat-num { font-size: 1.05rem; font-weight: 700; }
+
+  section { padding: 2.2rem 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+  section.collapsible { padding: 1.4rem 0; }
+  .section-head { display: flex; align-items: center; gap: 0.55rem; margin: 0 0 1.3rem; }
+  .section-head .ic {
+    font-size: 1.4rem; line-height: 1; display: flex; align-items: center; justify-content: center;
+    width: 2.2rem; height: 2.2rem; background: var(--surface-2); border-radius: 10px; flex: none;
+  }
+  h2 { font-size: 1.28rem; margin: 0; }
+  .section-note { color: var(--ink-soft); font-size: 0.9rem; margin: -0.7rem 0 1.3rem; }
+
+  .collapsible > .section-head {
+    cursor: pointer; user-select: none; margin: 0; padding: 0.3rem 0;
+  }
+  .collapsible > .section-head .sec-chev {
+    margin-inline-start: auto; font-size: 1.1rem; color: var(--ink-soft);
+    transition: transform 0.2s ease;
+  }
+  .collapsible.open > .section-head .sec-chev { transform: rotate(180deg); }
+  .section-body { display: none; margin-top: 1.3rem; }
+  .collapsible.open > .section-body { display: block; }
+
+  .day {
+    display: grid; grid-template-columns: 5px 1fr; gap: 1.1rem;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    box-shadow: var(--shadow); margin-bottom: 1rem; overflow: hidden;
+  }
+  .day-rail { background: var(--rail, var(--accent)); }
+  .day-body { padding: 1.1rem 1.2rem 1.25rem 1rem; }
+  .day-head { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.2rem; }
+  .day-num {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em;
+    color: var(--rail, var(--accent)); background: color-mix(in srgb, var(--rail, var(--accent)) 16%, transparent);
+    padding: 0.15rem 0.55rem; border-radius: 999px;
+  }
+  .day-title { font-size: 1.08rem; font-weight: 700; margin: 0; }
+  .day-km { font-size: 0.8rem; font-weight: 600; color: var(--accent2); margin-inline-start: 0.4rem; }
+  .day-date { margin-inline-start: auto; font-size: 0.85rem; color: var(--ink-soft); }
+  .agenda { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+  .agenda li { display: grid; grid-template-columns: 4.2rem 1fr; gap: 0.7rem; align-items: baseline; }
+  .agenda time { color: var(--accent2); font-size: 0.85rem; font-weight: 600; }
+  .agenda .what { font-size: 0.95rem; }
+  .agenda .loc { display: block; font-size: 0.82rem; margin-top: 0.2rem; }
+  .agenda .loc a { text-decoration: none; }
+  .agenda .loc a:hover { text-decoration: underline; }
+  .tag { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 0.05rem 0.5rem; border-radius: 999px; margin-inline-start: 0.4rem; vertical-align: middle; }
+  .tag-ok { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
+  .tag-cancel { background: color-mix(in srgb, var(--bad) 18%, transparent); color: var(--bad); }
+  .tag-opt { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+
+  .meet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.9rem; }
+  .meet-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; box-shadow: var(--shadow); }
+  .meet-card h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+  .meet-row { display: flex; justify-content: space-between; gap: 0.6rem; font-size: 0.88rem; padding: 0.28rem 0; border-top: 1px dashed var(--line); }
+  .meet-row:first-of-type { border-top: none; }
+  .meet-row .k { color: var(--ink-soft); }
+  .meet-row .v { text-align: left; }
+
+  .book { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem 1.2rem; box-shadow: var(--shadow); margin-bottom: 0.9rem; }
+  .book-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+  .book-head h3 { margin: 0; font-size: 1rem; }
+  .book-head .code { font-size: 0.82rem; color: var(--ink-soft); }
+  .book dl { margin: 0; display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
+  .book dt { font-size: 0.75rem; color: var(--ink-soft); margin: 0; }
+  .book dd { margin: 0.1rem 0 0; font-size: 0.9rem; }
+  .book-sub { font-size: 0.78rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.6rem; }
+
+  .rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.9rem; }
+  .rec-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; box-shadow: var(--shadow); }
+  .rec-card .rec-kind { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent2); font-weight: 600; }
+  .rec-card h3 { margin: 0.25rem 0 0.35rem; font-size: 1.02rem; }
+  .rec-card p { margin: 0; font-size: 0.88rem; color: var(--ink-soft); }
+  .rec-card a { display: inline-block; margin-top: 0.5rem; font-size: 0.82rem; text-decoration: none; }
+  .rec-card a:hover { text-decoration: underline; }
+
+  .info-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem 1.2rem; box-shadow: var(--shadow); margin-bottom: 0.9rem; }
+  .info-card h3 { margin: 0 0 0.65rem; font-size: 1rem; display: flex; align-items: center; gap: 0.4rem; }
+  .info-card ul, .info-card ol { margin: 0; padding-inline-start: 1.25rem; display: flex; flex-direction: column; gap: 0.42rem; font-size: 0.92rem; }
+  .info-card .opt { color: var(--ink-soft); }
+  .info-card .opt::before { content: "אופציונלי · "; font-size: 0.78rem; color: var(--accent); }
+
+  .cat { margin-bottom: 1.3rem; }
+  .cat-title {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--accent2); margin: 0 0 0.6rem;
+  }
+  .item-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  .item {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 0.6rem 0.8rem; box-shadow: var(--shadow);
+    display: flex; align-items: flex-start; gap: 0.65rem;
+  }
+  .item input[type="checkbox"] { width: 19px; height: 19px; accent-color: var(--accent2); flex: none; margin-top: 0.15rem; }
+  .item-main { flex: 1; min-width: 0; }
+  .item-label { font-size: 0.94rem; font-weight: 700; cursor: pointer; }
+  .item.done .item-label { color: var(--ink-soft); text-decoration: line-through; }
+</style>
+</head>
+<body>
+
+<div class="logo-bar">
+  <img class="logo-img" src="logo.png" alt="ReVital Yoga — לגלות חיים חדשים">
+</div>
+
+<div class="hero-photo-wrap">
+  <img class="hero-photo" src="hero.jpg" alt="טיול לאיטליה 2026">
+</div>
+
+<nav class="toc" aria-label="ניווט מהיר">
+  <ul>
+    <li><a href="#flights"><span class="ic">✈️</span>טיסות</a></li>
+    <li><a href="#hotels"><span class="ic">🏨</span>בתי מלון</a></li>
+    <li><a href="#lineup"><span class="ic">🚴</span>לו״ז</a></li>
+    <li><a href="#gear"><span class="ic">🎒</span>ציוד ולבוש</a></li>
+    <li><a href="#checklist"><span class="ic">📋</span>צ׳ק-ליסט לטיול</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="display">טיול לאיטליה 2026</h1>
+    <p class="sub">🚴 רכיבה מפסאו לקרמס</p>
+    <div class="stat-row">
+      <div class="stat"><p class="stat-label">📅 תאריך</p><p class="stat-num num">14–19.9.26</p></div>
+      <div class="stat"><p class="stat-label">🌙 לינה</p><p class="stat-num">5 לילות</p></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="flights" class="collapsible">
+    <div class="section-head"><span class="ic">✈️</span><h2>טיסות</h2><span class="sec-chev">▾</span></div>
+    <p class="section-note" style="margin-top:-0.7rem">כרטיסים יישלחו במייל כמה ימים לפני היציאה.</p>
+    <div class="book">
+      <div class="book-head"><h3>טיסת הלוך — בלובירד BZ 316</h3></div>
+      <dl>
+        <div><dt>מיקום ויעד</dt><dd>תל אביב (טרמינל 3) ← וינה</dd></div>
+        <div><dt>תאריך</dt><dd class="num">14.9.26</dd></div>
+        <div><dt>שעות</dt><dd class="num">המראה 14:00 · נחיתה 16:45</dd></div>
+      </dl>
+    </div>
+    <div class="book">
+      <div class="book-head"><h3>טיסת חזור — בלובירד BZ 317</h3></div>
+      <dl>
+        <div><dt>מיקום ויעד</dt><dd>וינה ← תל אביב</dd></div>
+        <div><dt>תאריך</dt><dd class="num">19.9.26</dd></div>
+        <div><dt>שעות</dt><dd class="num">המראה 17:45 · נחיתה 22:10</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="hotels" class="collapsible">
+    <div class="section-head"><span class="ic">🏨</span><h2>בתי מלון</h2><span class="sec-chev">▾</span></div>
+    <div class="book">
+      <div class="book-head"><h3>וינה — MOXY Vienna Airport</h3></div>
+      <dl><div><dd class="num">14.9</dd></div></dl>
+      <p style="margin:0.5rem 0 0"><a href="https://www.marriott.com/en-us/hotels/vieox-moxy-vienna-airport/overview/" target="_blank" rel="noopener">אתר המלון</a></p>
+    </div>
+    <div class="book">
+      <div class="book-head"><h3>פסאו — MK Hotel</h3></div>
+      <dl><div><dd class="num">15.9</dd></div></dl>
+      <p style="margin:0.5rem 0 0"><a href="https://www.mkhotels.de/home/passau/en" target="_blank" rel="noopener">אתר המלון</a></p>
+    </div>
+    <div class="book">
+      <div class="book-head"><h3>שלוגן — מלון רויטה</h3></div>
+      <dl><div><dd class="num">16.9</dd></div></dl>
+      <p style="margin:0.5rem 0 0"><a href="https://www.kocher.at/" target="_blank" rel="noopener">אתר המלון</a></p>
+    </div>
+    <div class="book">
+      <div class="book-head"><h3>לינץ — פארק אין רדיסון</h3></div>
+      <dl><div><dd class="num">17.9</dd></div></dl>
+      <p style="margin:0.5rem 0 0"><a href="https://www.radissonhotels.com/en-us/hotels/park-inn-linz" target="_blank" rel="noopener">אתר המלון</a></p>
+    </div>
+    <div class="book">
+      <div class="book-head"><h3>קרמס — Steigenberger Hotel & Spa</h3></div>
+      <dl><div><dd class="num">18.9</dd></div></dl>
+      <p style="margin:0.5rem 0 0"><a href="https://hrewards.com/de/steigenberger-hotel-spa-krems" target="_blank" rel="noopener">אתר המלון</a></p>
+    </div>
+  </section>
+
+  <section id="lineup" class="collapsible">
+    <div class="section-head"><span class="ic">🚴</span><h2>לו״ז יומי</h2><span class="sec-chev">▾</span></div>
+    <p class="section-note">ייתכנו שינויים בהתאם למצב ומזג האוויר.</p>
+
+    <div class="day" style="--rail:var(--accent)">
+      <div class="day-rail"></div>
+      <div class="day-body">
+        <div class="day-head">
+          <span class="day-num">יום 1</span>
+          <h3 class="day-title display">טיסה ונחיתה בוינה</h3>
+          <span class="day-date num">שני 14.9</span>
+        </div>
+        <ul class="agenda">
+          <li><time>11:00</time><div class="what">הגעה לשדה התעופה, נפגשים בטרמינל 3, שער 32 — נוודא נוכחות</div></li>
+          <li><time>14:00</time><div class="what">המראה לוינה — טיסת בלובירד BZ 316</div></li>
+          <li><time>16:45</time><div class="what">מפגש קבוצתי בנקודת איסוף המזוודות, ויציאה ברגל למלון מוקסי
+            <span class="loc"><a href="https://www.marriott.com/en-us/hotels/vieox-moxy-vienna-airport/overview/" target="_blank" rel="noopener">🏨 מלון MOXY Vienna Airport</a></span>
+          </div></li>
+          <li><time>17:30</time><div class="what">צ׳ק־אין וארוחה קלה במלון — באופן עצמאי, תשלום אישי</div></li>
+          <li><time>19:30</time><div class="what">מפגש קבוצתי</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="day" style="--rail:var(--accent2)">
+      <div class="day-rail"></div>
+      <div class="day-body">
+        <div class="day-head">
+          <span class="day-num">יום 2</span>
+          <h3 class="day-title display">מווינה לפסאו</h3>
+          <span class="day-date num">שלישי 15.9</span>
+        </div>
+        <ul class="agenda">
+          <li><time>07:00</time><div class="what">ארוחת בוקר</div></li>
+          <li><time>09:45</time><div class="what">צ׳ק־אאוט מהמלון</div></li>
+          <li><time>10:00</time><div class="what">יציאה להסעה עם המזוודות</div></li>
+          <li><time>12:00</time><div class="what">הפסקת קפה</div></li>
+          <li><time>14:30</time><div class="what">צ׳ק־אין במלון MK Hotel Passau
+            <span class="loc"><a href="https://www.mkhotels.de/home/passau/en" target="_blank" rel="noopener">🏨 אתר המלון</a></span>
+          </div></li>
+          <li><time>16:00</time><div class="what">יציאה לטיול רגלי, כ־5 ק״מ</div></li>
+          <li><time>19:30</time><div class="what">ארוחת ערב משותפת במסעדה</div></li>
+          <li><time>21:00</time><div class="what">חזרה למלון</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="day" style="--rail:var(--moss)">
+      <div class="day-rail"></div>
+      <div class="day-body">
+        <div class="day-head">
+          <span class="day-num">יום 3</span>
+          <h3 class="day-title display">רכיבה לשלוגן <span class="day-km num">🚴 40 ק״מ</span></h3>
+          <span class="day-date num">רביעי 16.9</span>
+        </div>
+        <ul class="agenda">
+          <li><time>07:00</time><div class="what">ארוחת בוקר</div></li>
+          <li><time>09:00</time><div class="what">מזוודות בנקודת האיסוף</div></li>
+          <li><time>09:30</time><div class="what">צ׳ק־אאוט מהמלון, קבלת אופניים, תדריך ויציאה לטיול <strong>(לקחת נשנושים לדרך)</strong></div></li>
+          <li><time>13:30</time><div class="what">הפסקת צהריים בבית קפה</div></li>
+          <li><time>16:30</time><div class="what">מגיעים לשלוגן</div></li>
+          <li><time>17:00</time><div class="what">יוצאים למלון</div></li>
+          <li><time>17:30</time><div class="what">צ׳ק־אין במלון רויטה
+            <span class="loc"><a href="https://www.kocher.at/" target="_blank" rel="noopener">🏨 אתר המלון</a></span>
+          </div></li>
+          <li><time>19:30</time><div class="what">ארוחת ערב משותפת במלון</div></li>
+          <li><time>21:00</time><div class="what">מפגש חברתי</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="day" style="--rail:var(--accent)">
+      <div class="day-rail"></div>
+      <div class="day-body">
+        <div class="day-head">
+          <span class="day-num">יום 4</span>
+          <h3 class="day-title display">רכיבה ללינץ <span class="day-km num">🚴 47 ק״מ</span></h3>
+          <span class="day-date num">חמישי 17.9</span>
+        </div>
+        <ul class="agenda">
+          <li><time>07:00</time><div class="what">ארוחת בוקר</div></li>
+          <li><time>09:00</time><div class="what">מזוודות בנקודת האיסוף וצ׳ק־אאוט מהמלון</div></li>
+          <li><time>09:30</time><div class="what">יציאה להסעה לשלוגן</div></li>
+          <li><time>10:00</time><div class="what">טיול רגלי לתצפית שלוגן <strong>(לקחת נשנושים לדרך)</strong></div></li>
+          <li><time>12:00</time><div class="what">יציאה לרכיבה</div></li>
+          <li><time>13:30</time><div class="what">עצירה להפסקת מדיטציה ונשנושים</div></li>
+          <li><time>15:00</time><div class="what">הפסקת צהריים בבית קפה־מסעדה</div></li>
+          <li><time>18:00</time><div class="what">שייט על הדנובה ללינץ, ורכיבה למלון</div></li>
+          <li><time>19:00</time><div class="what">צ׳ק־אין במלון פארק אין רדיסון, לינץ
+            <span class="loc"><a href="https://www.radissonhotels.com/en-us/hotels/park-inn-linz" target="_blank" rel="noopener">🏨 אתר המלון</a></span>
+          </div></li>
+          <li><time>20:00</time><div class="what">ארוחת ערב</div></li>
+          <li><time>21:15</time><div class="what">מפגש חברתי</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="day" style="--rail:var(--accent2)">
+      <div class="day-rail"></div>
+      <div class="day-body">
+        <div class="day-head">
+          <span class="day-num">יום 5</span>
+          <h3 class="day-title display">רכיבה לקרמס <span class="day-km num">🚴 33 ק״מ</span></h3>
+          <span class="day-date num">שישי 18.9</span>
+        </div>
+        <ul class="agenda">
+          <li><time>07:00</time><div class="what">ארוחת בוקר</div></li>
+          <li><time>09:30</time><div class="what">הוצאת המזוודות והאופניים להסעה <strong>(להחזיר מטען לאופניים)</strong></div></li>
+          <li><time>10:00</time><div class="what">נסיעה למלק (כשעה)</div></li>
+          <li><time>11:30</time><div class="what">יציאה לרכיבה</div></li>
+          <li><time>14:30</time><div class="what">טיול בדורנשטיין</div></li>
+          <li><time>16:00</time><div class="what">יציאה לקרמס</div></li>
+          <li><time>17:00</time><div class="what">צ׳ק־אין במלון סטייגנברגר — זמן חופשי בספא ובבריכה
+            <span class="loc"><a href="https://hrewards.com/de/steigenberger-hotel-spa-krems" target="_blank" rel="noopener">🏨 אתר המלון</a></span>
+          </div></li>
+          <li><time>19:30</time><div class="what">ארוחת ערב</div></li>
+          <li><time>21:00</time><div class="what">מפגש חברתי</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="day" style="--rail:var(--moss)">
+      <div class="day-rail"></div>
+      <div class="day-body">
+        <div class="day-head">
+          <span class="day-num">יום 6</span>
+          <h3 class="day-title display">חזרה לארץ</h3>
+          <span class="day-date num">שבת 19.9</span>
+        </div>
+        <ul class="agenda">
+          <li><time>07:00</time><div class="what">ארוחת בוקר</div></li>
+          <li><time>09:00</time><div class="what">יציאה לטיול</div></li>
+          <li><time>11:00</time><div class="what">צ׳ק־אאוט מהמלון, הנחת המזוודות בשמירה</div></li>
+          <li><time>12:00</time><div class="what">מפגש סיום</div></li>
+          <li><time>13:30</time><div class="what">הסעה לשדה התעופה (כשעה נסיעה)</div></li>
+          <li><time>17:45</time><div class="what">המראה מוינה, נחיתה 22:10 בתל אביב — בלובירד BZ 317. צ׳ק־אין קבוצתי, בדלפק עם הנחת המזוודה</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="gear" class="collapsible">
+    <div class="section-head"><span class="ic">🎒</span><h2>ציוד ולבוש</h2><span class="sec-chev">▾</span></div>
+
+    <div class="info-card">
+      <h3>👕 איך להתלבש לרכיבה</h3>
+      <ul>
+        <li>ביגוד בשכבות בהתאם למזג האוויר (יעודכן על בסיס יומי)</li>
+        <li>קסדה, כובע, משקפיים, נעלי ספורט, מעיל רוח/גשם</li>
+        <li class="opt">כיסוי מרופד לכיסא, מכנסי ג׳ל, כפפות רכיבה</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <h3>🎒 מה לקחת בתיק לרכיבה היומית</h3>
+      <p class="section-note" style="margin:0 0 0.6rem">יש באופניים תיק וסבל.</p>
+      <ul>
+        <li>בגדים נוספים בהתאם למזג האוויר</li>
+        <li>מעיל רוח/גשם לכל מקרה</li>
+        <li>כובע, קסדה, מגבת לשכיבה על הגב</li>
+        <li>ערכת עזרה ראשונה אישית (אקמול, פלסטר וכו׳)</li>
+        <li>מים 1.5 ליטר מהברז (2 בקבוקים של 750 מ״ל), נייר טואלט, שקית לזבל</li>
+        <li>נשנושים לדרך (סנדוויץ׳, גרנולה בר, תמרים, אגוזים וכו׳)</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <section id="checklist" class="collapsible">
+    <div class="section-head"><span class="ic">📋</span><h2>צ׳ק-ליסט לטיול</h2><span class="sec-chev">▾</span></div>
+    <div class="cat">
+      <p class="cat-title">תעודות ומסמכים</p>
+      <ul class="item-list" data-cat="docs"></ul>
+    </div>
+    <div class="cat">
+      <p class="cat-title">ביגוד והנעלה</p>
+      <ul class="item-list" data-cat="clothes"></ul>
+    </div>
+    <div class="cat">
+      <p class="cat-title">אופציונלי</p>
+      <ul class="item-list" data-cat="optional"></ul>
+    </div>
+    <div class="cat">
+      <p class="cat-title">שונות</p>
+      <ul class="item-list" data-cat="misc"></ul>
+    </div>
+  </section>
+
+
+
+</main>
+
+<script>
+  (function () {
+    var ids = ['flights', 'hotels', 'lineup', 'gear', 'checklist'];
+    var sections = {};
+
+    ids.forEach(function (id) {
+      var section = document.getElementById(id);
+      var head = section.querySelector('.section-head');
+      var body = document.createElement('div');
+      body.className = 'section-body';
+      var node = head.nextSibling;
+      while (node) {
+        var next = node.nextSibling;
+        body.appendChild(node);
+        node = next;
+      }
+      section.appendChild(body);
+      sections[id] = section;
+
+      head.addEventListener('click', function () {
+        var isOpen = section.classList.contains('open');
+        ids.forEach(function (otherId) { sections[otherId].classList.remove('open'); });
+        if (!isOpen) section.classList.add('open');
+      });
+    });
+
+    function openFromHash() {
+      var id = location.hash.replace('#', '');
+      if (sections[id]) {
+        ids.forEach(function (otherId) { sections[otherId].classList.remove('open'); });
+        sections[id].classList.add('open');
+      }
+    }
+    window.addEventListener('hashchange', openFromHash);
+  })();
+
+  (function () {
+    var ITEMS = {
+      docs: [
+        "דרכון בתוקף (+ צילום דרכון בטלפון)",
+        "מזומן (כ־200 אירו)",
+        "כרטיס אשראי",
+        "ביטוח בריאות בחו״ל (להוסיף רכיבה על אופניים)",
+        "מסמכי ביטוח נסיעות",
+        "כרטיס טיסה"
+      ],
+      clothes: [
+        "קסדת רכיבה",
+        "כובע לשמש",
+        "בגדי רכיבה והליכה נוחים",
+        "ביגוד יומי (גרביים, תחתונים, חולצות, מכנסיים)",
+        "מעיל רוח מחמם (בסגנון יוניקלו)",
+        "חליפת רכיבה קלה לגשם",
+        "תרמיל גב למטען יומי (כ־20 ליטר, נמצא על האופניים)",
+        "מגבת לשכיבה בשטח",
+        "בגדי ערב חמים (למלון ולטיול בחוץ — 10 מעלות)",
+        "בגד ים",
+        "נעלי ספורט",
+        "כפכפים",
+        "מטריה"
+      ],
+      optional: [
+        "מכנסי רכיבה מרופדים / כיסוי ריפוד לכיסא",
+        "כפפות רכיבה / כפפות דקות"
+      ],
+      misc: [
+        "לרכוש מראש סים דיגיטלי (eSIM) — Airalo או eSimo, כ־5GB מספיק",
+        "קרם הגנה / שפתון SPF",
+        "כבל + מטען לטלפון נייד",
+        "משקפי שמש / משקפי ראייה",
+        "מוצרי היגיינה וטיפול",
+        "עזרה ראשונה (פלסטרים, משכך כאבים, תרופות אישיות)",
+        "2 בקבוקי מים 750 מ״ל למילוי (צריך 1.5 ליטר ליום)",
+        "ספר",
+        "מסטיק / מתוקים",
+        "חטיפים ונשנושים: פירות יבשים, חטיפי אנרגיה וכו׳",
+        "שקיות ניילון לזבל בשטח ולכביסה מלוכלכת"
+      ]
+    };
+
+    var KEY = 'italy-packing-list';
+    var state = {};
+    try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+    var total = 0;
+
+    function buildChecklist() {
+      Object.keys(ITEMS).forEach(function (cat) {
+        var ul = document.querySelector('.item-list[data-cat="' + cat + '"]');
+        ITEMS[cat].forEach(function (label, i) {
+          var id = cat + '-' + i;
+          total++;
+          var saved = state[id] || {};
+          var li = document.createElement('li');
+          li.className = 'item' + (saved.checked ? ' done' : '');
+          li.innerHTML =
+            '<input type="checkbox" id="' + id + '"' + (saved.checked ? ' checked' : '') + '>' +
+            '<div class="item-main">' +
+              '<label class="item-label" for="' + id + '"></label>' +
+            '</div>';
+          li.querySelector('.item-label').textContent = label;
+          var cb = li.querySelector('input[type="checkbox"]');
+          cb.addEventListener('change', function () {
+            li.classList.toggle('done', cb.checked);
+            save(id, { checked: cb.checked });
+          });
+          ul.appendChild(li);
+        });
+      });
+    }
+
+    function save(id, val) {
+      state[id] = val;
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    }
+
+    buildChecklist();
+  })();
+</script>
+</body>
+</html>
